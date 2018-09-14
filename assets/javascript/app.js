@@ -1,28 +1,29 @@
+// the jquery doc ready thing
 $(document).ready(function() {
-	var index = 0;
+	var index = 0; 
 	var countdownTimer = {
 		time : 30,
-		reset: function() {
+		reset: function() {  // reset
 			this.time = 30;
 			$('.timer').html('<h3>' + this.time + ' seconds remaining</h3>');
 		},
-		start: function() {
+		start: function() {  // start
 			counter = setInterval(countdownTimer.count, 1000);	
 		},
-		stop: function() {
+		stop: function() {  // stop
 			clearInterval(counter);
 		},
-		count: function() {
+		count: function() {  // count backwards
 				countdownTimer.time--;
 				console.log(countdownTimer.time);
-//				$('.timer').html(countdownTimer.time);
+//	countdown timer
 			if (countdownTimer.time >= 0) {
 				$('.timer').html('<h3>' + countdownTimer.time + ' seconds remaining</h3>');
 			}
 			else {
-				index++;
+				index++; // go to the next question in the array
 				answerWrong();
-				countdownTimer.reset();
+				countdownTimer.reset(); // reset time
 				if (index < questionArray.length) {
 					loadQuestion(index);
 				} else {
@@ -33,9 +34,9 @@ $(document).ready(function() {
 		}
 	};
 
-var correct = 0;
+var correct = 0; // display score
 var wrong = 0;
-var q1 = {
+var q1 = {  // the questions and answers
 	question : 'What actor played Russian roulette in “The Deer Hunter”, demanded “More Cowbell” on “Saturday Night Live”, and danced solo in Fatboy Slim’s “Weapon of Choice” video?',
 	possibleAnswers : ['A. Harrison Ford',
 				 'B. Samuel Jackson',
@@ -145,14 +146,7 @@ function loadQuestion(questionSelection) {
   $("#buttonB").text(questionArray[questionSelection].possibleAnswers[1]).show();
   $("#buttonC").text(questionArray[questionSelection].possibleAnswers[2]).show();
   $("#buttonD").text(questionArray[questionSelection].possibleAnswers[3]).show();
-//  getAnswer();  
-//  nextQuestion(index);
 }
-
-//function nextQuestion() {
-//	index = index++;
-//	console.log(index);
-//}
 
 function setup() {
 	index = 0;
@@ -200,29 +194,7 @@ function showScore() {
 	$('.timer').empty();
 
 }
-//		for (var i=0; i<questionArray.length; i++) {
-//			$('.question').append('<p>'+questionArray[i].question+'</p>');
-//			for (var j=0; j<questionArray[i].possibleAnswers.length; j++) {
-//				$('.answers').append('<span><button id="possibleAnswer">' + questionArray[i].possibleAnswers[j]+ '</button></span>');
-//			}
-//			$('#possibleAnswers').on('click', function() {
 
-
-//		console.log("click");
-//		countdownTimer.start();
-//		for (var i = 0; i < questionArray.length; i++) {
-//			console.log(i);
-
-//			$('.timer').html('<h3>'+countdownTimer.time + ' seconds remaining</h3>');
-//			$('.question').html(questionArray[i].question);
-//			while (countdownTimer != 0) {
-
-//			}
-		
-//	});
-//	$('#startButton').click(countdownTimer.start);
-
-//}
 setup();
 $('.answerchoice').on('click', function() {
  console.log($(this));
@@ -256,7 +228,7 @@ if ((answerChosen == 'D') && (questionArray[index].flags[3] == true)) {
  	answerWrong();
  }
 
- $(".question").text('');
+ $(".question").text(''); // the button text
  $("#buttonA").text('');
  $("#buttonB").text('');
  $("#buttonC").text('');
@@ -270,6 +242,4 @@ if ((answerChosen == 'D') && (questionArray[index].flags[3] == true)) {
  }
 });
 
-
-//	$('#start').click(countdownTimer.start);
 });
