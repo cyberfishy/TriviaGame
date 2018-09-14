@@ -1,0 +1,31 @@
+body {
+	background-color: yellow;
+}
+
+button {
+	width: 40%;
+	height: 40px;
+	margin: 0 10%;
+}
+
+button.answerchoice {
+	display: none;
+}
+
+button:hover {
+	background-color: rgb(44, 202, 105);
+	color: white;
+}
+
+.answers div {
+	margin: 0 auto;
+}
+
+img {
+	height: 200px;
+	width: auto;
+}
+
+h1, h2, h3, .question {
+	text-align: center;
+}
